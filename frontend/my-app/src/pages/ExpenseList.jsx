@@ -12,14 +12,20 @@ const ExpenseList = () => {
 
   const fetchExpenses = async () => {
     try {
+      const token = localStorage.getItem('token');
+      if (!token) {
+        setError('Please login to view expenses');
+        setLoading(false);
+        return;
+      }
       const res = await api.get('/expenses/allexpenses');
       setExpenses(res.data);
       setLoading(false);
     } catch (err) {
-      setError(err.response?.data?.message || 'Failed to fetch courses');
+      setError(err.response?.data?.message || 'Failed to fetch expenses');
       setLoading(false);
     }
-  };
+};
 
   const handleExpenseDeleted = (expenseId) => {
     setExpenses(expenses.filter(expense => expense._id !== expenseId));

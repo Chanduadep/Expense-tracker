@@ -7,13 +7,13 @@ const AddExpensesForm = () => {
   const navigate = useNavigate();
 
   const handleExpensesAdded = (newExpense) => {
-    console.log('Course added:', newExpense); 
-    navigate('/');
+    console.log('Expense  added:', newExpense); 
+    navigate('/ExpenseList');
   };
 
   return (
     <div>
-    <h1>Add New Course</h1>
+    <h1>Add New Expense</h1>
     <ExpensesForm onExpensesAdded={handleExpensesAdded} />
   </div>
   );

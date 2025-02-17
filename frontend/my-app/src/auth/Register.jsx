@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import api from '../utils/api'
+import '../styles/login.css'
 
 const Login = () => {
   const [formData, setFormData] = useState({
@@ -28,10 +29,10 @@ const Login = () => {
   };
 
   return (
-    <div>
-      <h2>Register</h2>
-      {error && { error }}
-      <form onSubmit={handleSubmit}>
+    <div className="login-container">
+      <form onSubmit={handleSubmit} className="login-form">
+      <h2 >Register</h2>
+      {error && <p className="error-message">{error}</p>}
       <div>
           <label>UserName</label>
           <input type="text" name="username" onChange={handleChange} required />
@@ -55,7 +56,7 @@ const Login = () => {
         </div>
 
         <button type="submit">Register</button>
-        <a href="/login"><p>Already have an Account?Login here</p></a>
+        <a href="/login" className="register-link"><p>Already have an Account?Login here</p></a>
       </form>
     </div>
   );

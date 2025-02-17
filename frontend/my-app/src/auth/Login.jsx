@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import api from '../utils/api'
 import { useAuth } from "../context/AuthContext";
+import '../styles/login.css'
 
 const Login = () => {
   const [formData, setFormData] = useState({
@@ -28,9 +29,10 @@ const Login = () => {
   };
 
   return (
-    <div>
+    <div className="login-container">
+    <div className="login-form">
       <h2>Login</h2>
-      {error && { error }}
+      {error && <p className="error-message">{error}</p>}
       <form onSubmit={handleSubmit}>
         <div>
           <label>Email</label>
@@ -46,9 +48,12 @@ const Login = () => {
           />
         </div>
         <button type="submit">Login</button>
-        <a href="/register"><p>New user?Register Here</p></a>
       </form>
+      <a href="/register" className="register-link">
+        <p>New user? Register Here</p>
+      </a>
     </div>
+  </div>
   );
 };
 

@@ -16,11 +16,12 @@ function App() {
       <AuthProvider>
       <Router>
         <Routes>
+        <Route path="/" element={<Navigate to="/login" />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/welcome" element={<Welcome />} />
         <Route path="/ExpensesForm" element={<ExpensesForm />} />
-        <Route path="/ExpenseList" element={<ExpenseList />} />
+        <Route path="/expenses" element={<ExpenseList />} />
         <Route path="/ExpenseItem" element={<ExpenseItem />} />
         <Route path="/AddExpense" element={<AddExpensesForm />} />
         </Routes>

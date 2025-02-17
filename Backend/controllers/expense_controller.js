@@ -7,7 +7,7 @@ export const addExpenses= async (req,res)=>{
             expenseName,
             amount,
             description,
-            createdBy:req.user.id
+            userId:req.user.id
         })
         await expense.save()
         return res.json(expense)
